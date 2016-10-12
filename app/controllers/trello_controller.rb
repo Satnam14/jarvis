@@ -1,4 +1,3 @@
-require 'byebug'
 class TrelloController < ApplicationController
 
   def webhook_ready
