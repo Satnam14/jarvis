@@ -66,11 +66,14 @@ class TrelloController < ApplicationController
 
   def move_card_position(action)
     trello_list = Trello.get_list_cards(action['data']['list']['id'])
-    jarvis_list = List.find_by_title(action['data']['list']['name']).cards.order(:position)
-    trello_list.each_with_index do |card, index|
-      next if card['name'] == jarvis_list[index]['name']
-      card = jarvis_list[index]
-      card.position = index + 1
+    list_name = action['data']['list']['name']
+    jarvis_list = List.find_by_title(list_name).cards.order(:position)
+    jarvis_list.each_with_index do |card, index|
+      next if trello_list[index]['name'] == card['title']
+      actual_position = trello_list.find_index do |trello_card|
+        trello_card['name'] == card['title']
+      end
+      card.position = actual_position + 1
       card.save
     end
     render json: { result: 'OK' }
