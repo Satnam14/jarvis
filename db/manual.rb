@@ -1,0 +1,122 @@
+Boards = [
+  {title: 'Pixlee'},
+  {title: 'Destiny'},
+  {title: 'Physique'},
+  {title: 'Home'}
+]
+
+Lists = [
+  {title: 'Primary Objective', board_id: 1, priority: 1},
+  {title: 'Elastic Filters', board_id: 1, priority: 2},
+  {title: 'Secondary Objective', board_id: 1, priority: 3},
+  {title: 'Software Engineer Profile', board_id: 2, priority: 5},
+  {title: 'Technical Interview Preperation', board_id: 2, priority: 6},
+  {title: 'Engineering Knowledge', board_id: 2, priority: 7},
+  {title: 'Behavioral Interview Prep', board_id: 2, priority: 8},
+  {title: 'Workouts', board_id: 3, priority: 9},
+  {title: 'Diet', board_id: 3, priority: 10},
+  {title: 'Dress Up', board_id: 3, priority: 11},
+  {title: 'Grooming', board_id: 3, priority: 12},
+  {title: 'Healthy Finances', board_id: 4, priority: 13},
+  {title: 'Maintainence', board_id: 4, priority: 14},
+  {title: 'Emotional Intelligence', board_id: 4, priority: 15},
+  {title: 'Better Conversationalist', board_id: 4, priority: 16},
+  {title: 'Social', board_id: 4, priority: 17},
+  {title: 'Reflect', board_id: 4, priority: 18},
+  {title: 'Medical', board_id: 4, priority: 19}
+]
+
+Cards = [
+  {title: "Smart Search efficiency metrics", position: 3, list_id: 3},
+  {title: "Elasticsearch readings from Dennis", position: 2, list_id: 3},
+  {title: "Read Conquering the command line", position: 3, list_id: 6},
+  {title: "Master Git - Codeacademy", position: 4, list_id: 6},
+  {title: "Learn ES6", position: 6, list_id: 6},
+  {title: "Resume", position: 3, list_id: 5},
+  {title: "GitHub profile", position: 6, list_id: 5},
+  {title: "Chess", position: 7, list_id: 5},
+  {title: "Asteroids", position: 8, list_id: 5},
+  {title: "Personal site", position: 4, list_id: 5},
+  {title: "Cover letter", position: 5, list_id: 5},
+  {title: "Common Behavioral Questions", position: 2, list_id: 8},
+  {title: "Basics of Algorithms", position: 2, list_id: 6},
+  {title: "Geeks for Geeks Algorithms", position: 6, list_id: 6},
+  {title: "Database questions", position: 4, list_id: 6},
+  {title: "Advanced Data Structures", position: 5, list_id: 6},
+  {title: "Ruby Questions", position: 3, list_id: 6},
+  {title: "Javascript Questions", position: 1, list_id: 6},
+  {title: "Practice Writing Unit Tests on ElasticFilter", position: 1, list_id: 6},
+  {title: "Answer your own SO answers", position: 1, list_id: 5},
+  {title: "Research companies that you really want to join", position: 2, list_id: 5},
+  {title: "Optician", position: 2, list_id: 18},
+  {title: "Research who is a good Gasintrologist", position: 4, list_id: 18},
+  {title: "Research who is a good dentist for getting Braces", position: 3, list_id: 18},
+  {title: "Investigate how Equifax and Real Page messed up credit score", position: 4, list_id: 12},
+  {title: "Closet Remodel", position: 2, list_id: 13},
+  {title: "Get the most CV tags frequencies working", position: 3, list_id: 1},
+  {title: "Pending filters", position: 1, list_id: 1},
+  {title: "Learn Julius Caesar quotes", position: 3, list_id: 15},
+  {title: "Khan Academy - Grammar Class", position: 1, list_id: 15},
+  {title: "Horizontal push and pull", position: 1, list_id: 8},
+  {title: "Vertical push and pull", position: 2, list_id: 8},
+  {title: "HIIT", position: 3, list_id: 8},
+  {title: "Learn about color theory", position: 3, list_id: 10},
+  {title: "Exercise List", position: 4, list_id: 8},
+  {title: "Learn to easy salmon and salad", position: 2, list_id: 9},
+  {title: "You bought the hair growth things. Use them", position: 1, list_id: 11},
+  {title: "Haircut", position: 3, list_id: 11},
+  {title: "Google Photos CleanUp", position: 3, list_id: 13},
+  {title: "Meal prep containers", position: 5, list_id: 9},
+  {title: "Elevator Pitch", position: 1, list_id: 8},
+  {title: "Project Questions", position: 3, list_id: 8},
+  {title: "Learn React.JS", position: 7, list_id: 6},
+  {title: "Ronnie FTW", position: 6, list_id: 6},
+  {title: "AA Buzzwords - Cool things to know", position: 5, list_id: 6},
+  {title: "Make a cutting diet spreadsheet", position: 4, list_id: 9},
+  {title: "Learn how to cook chicken breast and rice meals", position: 3, list_id: 9},
+  {title: "creditcards", position: 1, list_id: 12},
+  {title: "So tell me about credit cards already", position: 2, list_id: 12},
+  {title: "Credit Cards 202: beyond the basics", position: 3, list_id: 12},
+  {title: "Buy more compression gear", position: 1, list_id: 10},
+  {title: "ElasticFilter Documentation", position: 2, list_id: 1},
+  {title: "Best Foods for Your Hair", position: 2, list_id: 11},
+  {title: "So I seems like I dont get along with white people", position: 1, list_id: 18},
+  {title: "Read Emotional Intelligence 2", position: 1, list_id: 14},
+  {title: "Keeping shirts tucked in", position: 5, list_id: 10},
+  {title: "Buy sunglasses", position: 4, list_id: 10},
+  {title: "New shoes", position: 2, list_id: 10},
+  {title: "Get rid of dark circles", position: 4, list_id: 11},
+  {title: "How to smell great?", position: 5, list_id: 11},
+  {title: "The food lab", position: 1, list_id: 9},
+  {title: "Read thinking fast and slow", position: 2, list_id: 15},
+  {title: "How do Hash Tables work?", position: 7, list_id: 6},
+  {title: "How to invert a binary tree?", position: 8, list_id: 6},
+  {title: "Trish Articles", position: 3, list_id: 3},
+  {title: "Dermatologist", position: 1, list_id: 18},
+  {title: "Coolest Outfit Formulas You Can Wear This Fall – LIFESTYLE BY PS", position: 6, list_id: 10},
+  {title: "Febreeze hawain breeze", position: 4, list_id: 13},
+  {title: "Extract DUH code from Segment", position: 2, list_id: 2},
+  {title: "KB and Equinox", position: 1, list_id: 3},
+  {title: "Beshi - talk to Mamaji and Mamiji", position: 1, list_id: 16},
+  {title: "New running shoes", position: 5, list_id: 13},
+  {title: "StartUps reading from Melody", position: 7, list_id: 3},
+  {title: "Talk to Hardeep", position: 2, list_id: 16},
+  {title: "Talk to JB", position: 3, list_id: 16},
+  {title: "Talk to Mom and Dad one more time", position: 4, list_id: 16},
+  {title: "New Underwears", position: 6, list_id: 13},
+  {title: "New low cut socks", position: 7, list_id: 13},
+  {title: "Cancel VisualCV.com is Beshi doesn't use it", position: 5, list_id: 16},
+  {title: "Pick a project", position: 1, list_id: 0}
+]
+
+Boards.each do |board|
+ Board.create(board)
+end
+
+Lists.each do |list|
+  List.create(list)
+end
+
+Cards.each do |card|
+  Card.create(card)
+end
