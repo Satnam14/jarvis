@@ -1,35 +1,41 @@
+require 'byebug'
 class TrelloController < ApplicationController
 
-  def recieve
-    action = request.body
+  def webhook_ready
+    render json: 'OK', status: 200
+  end
 
-    if action.type == "CreateCard"
+  def receive
+    post_data = JSON.parse(request.raw_post)
+    action = post_data['action']
+
+    if action['type'] == "createCard"
       create_card(action)
-    elsif action.type == "UpdateCard"
-      if action.data.card.closed
+    elsif action['type'] == "updateCard"
+      if action['data']['card']['closed']
         close_card(action)
-      elsif action.data.listAfter
+      elsif action['data']['listAfter']
         move_card_list(action)
-      elsif action.data.old.pos
+      elsif action['data']['old']['pos']
         move_card_position(action)
       else
         rename_card(action)
       end
-    elsif action.type == "addLabelToCard"
+    elsif action['type'] == "addLabelToCard"
       add_label_to_card(action)
-    elsif action.type == "removeLabelFromCard"
+    elsif action['type'] == "removeLabelFromCard"
       remove_label_from_card(action)
-    elsif action.type == "moveCardToBoard"
+    elsif action['type'] == "moveCardToBoard"
       move_card_board(action)
     else
     end
   end
 
   def create_card(action)
-    link = 'https://trello.com/c/' + action.data.card.shortLink
-    list = List.find_by_title(action.data.list.name)
+    link = 'https://trello.com/c/' + action['data']['card']['shortLink']
+    list = List.find_by_title(action['data']['list']['name'])
     @card = Card.new
-    @card.title = action.data.card.name
+    @card.title = action['data']['card']['name']
     @card.list = list
     if @card.save
       render json: @card
@@ -39,7 +45,7 @@ class TrelloController < ApplicationController
   end
 
   def close_card(action)
-    @card = Card.find_by_title(action.data.card.name)
+    @card = Card.find_by_title(action['data']['card']['name'])
     if @card.update(archived: true)
       render json: @card
     else
@@ -48,8 +54,8 @@ class TrelloController < ApplicationController
   end
 
   def move_card_list(action)
-    @new_list = List.find_by_title(action.data.listAfter.name)
-    @card = Card.find_by_title(action.data.card.name)
+    @new_list = List.find_by_title(action['data']['listAfter']['name'])
+    @card = Card.find_by_title(action['data']['card']['name'])
     @card.list = @new_list
     if @card.save
       render json: @card
@@ -59,8 +65,8 @@ class TrelloController < ApplicationController
   end
 
   def move_card_position(action)
-    trello_list = Trello.get_list_cards(action.data.list.id)
-    jarvis_list = List.find_by_title(action.data.list.name).cards.order(:position)
+    trello_list = Trello.get_list_cards(action['data']['list']['id'])
+    jarvis_list = List.find_by_title(action['data']['list']['name']).cards.order(:position)
     trello_list.each_with_index do |card, index|
       next if card['name'] == jarvis_list[index]['name']
       card = jarvis_list[index]
@@ -71,8 +77,8 @@ class TrelloController < ApplicationController
   end
 
   def move_card_board(action)
-    @new_list = List.find_by_title(action.data.list.name)
-    @card = Card.find_by_title(action.data.card.name)
+    @new_list = List.find_by_title(action['data']['list']['name'])
+    @card = Card.find_by_title(action['data']['card']['name'])
     @card.list = @new_list
     if @card.save
       render json: @card
@@ -82,8 +88,8 @@ class TrelloController < ApplicationController
   end
 
   def rename_card(action)
-    @card = Card.find_by_title(action.data.old.name)
-    if @card.update(title: action.data.card.name)
+    @card = Card.find_by_title(action['data']['old']['name'])
+    if @card.update(title: action['data']['card']['name'])
       render json: @card
     else
       render json: @card.errors.full_messages
