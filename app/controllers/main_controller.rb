@@ -4,6 +4,10 @@ class MainController < ApplicationController
     # discover the magic function
   end
 
+  def welcome
+    render json: 'OK', status: 200
+  end
+
   def change_list_priority
     lists = List.all
     subject_list = lists.detect { |list| list[:id] == params[:list_id] }
