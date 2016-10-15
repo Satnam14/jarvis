@@ -1,7 +1,11 @@
 class MainController < ApplicationController
 
   def get_cards_by_priority
-    # discover the magic function
+    @cards = Card.joins(:list)
+                 .where(position: 1, archived: false)
+                 .order("lists.priority ASC")
+
+    render json: @cards
   end
 
   def welcome
